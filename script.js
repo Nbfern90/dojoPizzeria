@@ -1,10 +1,3 @@
-var pizzaOption = {
-  crustType: ["Deep Dish","Hand Tossed", "Gluten-Free"],
-  sauceType: ["Marinara", "Traditional", "Alfredo"],
-  cheeses: ["Mozzarella", "Feta", "Parm"],
-  toppings: ["Pepperoni", "Sausage","Mushrooms","Olives", "Onions"]
-}
-
 function pizzaOven(crustType, sauceType, cheeses, toppings){
   var pizza = {};
   pizza.crustType = crustType;
@@ -31,15 +24,31 @@ var P5 = pizzaOven ("Gluten-Free", "Traditional",["Feta,", "Parm"], "Olive" )
 console.log(P5);
 
 
-/* IN PROGRESS!!!
-function randomPizza(crustType, sauceType, cheeses, toppings){
-  var pizza = {};
-  pizza.crustType =  Math.floor(Math.random() * crustType);
-  pizza.sauceType =  Math.floor(Math.random()* sauceType);
-  pizza.cheeses =   Math.floor(Math.random() * cheeses);
-  pizza.toppings = Math.floor(Math.random() * toppings);
-  return pizza;
+var crustType = [
+  "Deepdish", "Gluten-Free","Hand Tossed"
+];
+
+var sauceType=["Traditional", "Marinara", "Alfredo"];
+
+var cheeses=["Mozzarella", "Feta", "Parm"];
+
+var toppings=["Pepperoni", "Sausage", "Olives", "Mushrooms", "Olives"];
+
+
+function randomPick(arr){
+  var i = Math.floor(arr.length * Math.random());
+  return arr[i];
 }
 
+function randomPizza() {
+  var pizza = {};
+  pizza.crustType = randomPick(crustType);
+  pizza.sauceType = randomPick(sauceType);
+  pizza.cheeses = randomPick(cheeses);
+  pizza.toppings = randomPick(toppings);
+  {
+    return pizza;
+  }
+}
 
-console.log(randomPizza(crustType, sauceType, cheeses, toppings));*/
+console.log(randomPizza());
